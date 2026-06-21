@@ -167,10 +167,11 @@ function Tag({ children }: { children: React.ReactNode }) {
   );
 }
 
-function SectionLabel({ index, children }: { index: string; children: React.ReactNode }) {
+function SectionLabel({ index, children, icon }: { index: string; children: React.ReactNode; icon?: string }) {
   return (
     <div className="mb-10 flex items-baseline gap-3">
       <span className="font-mono-tag text-primary">{index}</span>
+      {icon && <span className="font-mono-tag text-primary">{icon}</span>}
       <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
         {children}
       </h2>
@@ -270,7 +271,7 @@ function Stack() {
     <section id="about" className="py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="reveal">
-          <SectionLabel index="01.">Sobre mí · Stack técnico</SectionLabel>
+          <SectionLabel index="01." icon="</>">Stack técnico</SectionLabel>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {STACK.map((cat) => {
